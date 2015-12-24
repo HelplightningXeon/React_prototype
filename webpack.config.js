@@ -1,7 +1,10 @@
+var webpack = require('webpack');
+
 module.exports = {
-    entry: [
-        './src/javascripts/entry.js.jsx'
-    ],
+    entry: {
+        app: './src/javascripts/entry.js.jsx',
+	vendors: ['react']
+    },
     output: {
         path: __dirname + '/assets/',
         publicPath: '/assets/',
@@ -13,8 +16,8 @@ module.exports = {
 	    { test: /\.scss$/, include: /src/, loaders: ["style", "css", "sass?outputStyle=expanded"]}
 	]
     },
-    externals: {
-	"jquery": "jQuery"
-    },
-    devtool: "#inline-source-map"
+    devtool: "#source-map",
+    plugins: [
+	new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
+    ]
 }
