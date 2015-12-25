@@ -1,7 +1,7 @@
-require("../css/bootstrap_asset.min.scss");
-require("../css/style_asset.scss");
+require("../css/bootstrap.min.scss");
+require("../css/style.scss");
 require("../css/color/gray.css");
-require("../css/font-awesome_asset.min.scss");
+require("../css/font-awesome.min.scss");
 
 var React = require('react');
 var ReactDOM = require('react-dom');
