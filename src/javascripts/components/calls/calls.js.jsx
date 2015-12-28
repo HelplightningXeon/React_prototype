@@ -8,13 +8,18 @@ module.exports = React.createClass({
 
   loadCallsFromServer: function() {
     $.ajax({
-      url: this.props.src,
+      url: "http://localhost:32769/calls", // this.props.src,
       dataType: 'json',
+      crossDomain: true,
       success: function(data) {
         this.setState({data: data});
       }.bind(this),
       error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
+        if (xhr.status == 401) {
+	  alert("Login first");
+	} else {
+          console.error(this.props.url, status, err.toString());
+	}
       }.bind(this)
     });
   },
