@@ -13,7 +13,7 @@ module.exports = {
     },
     module: {
 	loaders: [
-	    { test: /\.jsx$/, exclude: /node_modules/, loaders: ["babel-loader"]},
+	    { test: /\.jsx?$/, exclude: /node_modules/, loaders: ["babel-loader"]},
 	    { test: /\.scss$/, include: /src/, loader: ExtractTextPlugin.extract('css!sass')},
 	    { test: /\.css$/, include: /src/, loaders: ["style", "css"]},
 	    {
