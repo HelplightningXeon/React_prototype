@@ -17,6 +17,7 @@ module.exports = React.createClass({
       error: function(xhr, status, err) {
         if (xhr.status == 401) {
 	  alert("Login first");
+	  this.props.history.pushState(null, `/sign_in`);
 	} else {
           console.error(this.props.url, status, err.toString());
 	}
