@@ -8,8 +8,11 @@ module.exports = React.createClass({
 
   loadCallsFromServer: function() {
     $.ajax({
-      url: "http://localhost:32769/calls", // this.props.src,
+      url: "http://localhost:32769/calls/retrieve_calls", // this.props.src,
       dataType: 'json',
+      xhrFields: {
+	  withCredentials: true
+      },
       crossDomain: true,
       success: function(data) {
         this.setState({data: data});
